@@ -2,19 +2,19 @@
 
 `Value(String: name, any: initialState)`
 
-Returns an object with keys `actions` and `reducer`
+Returns an object with keys `actions` and `reducer`.
 
 ## Reducer
 
-A standard redux reducer to be passed to `redux.combineReducers`
+A standard redux reducer to be passed to `redux.combineReducers`.
 
 ## Actions
 
-`actions` is an object containing standard redux action creators, to be passed to `store.dispatch`
+`actions` is an object containing standard redux action creators, to be passed to `store.dispatch`.
 
 ### `set(nextValue)`
 
-sets the state to `nextValue`
+sets the state to `nextValue`.
 
 # Example
 
