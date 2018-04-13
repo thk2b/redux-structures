@@ -1,4 +1,7 @@
 # Value
+```js
+import Value from 'redux-structures/Value'
+```
 
 `Value(String: name, any: initialState)`
 
@@ -16,7 +19,7 @@ A standard redux reducer to be passed to `redux.combineReducers`.
 
 sets the state to `nextValue`.
 
-# Example
+## Example
 
 ```js
 import Value from 'redux-structures/Value'
