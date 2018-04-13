@@ -4,7 +4,8 @@
   "description": "Reusable redux data structures",
   "main": "build/index.js",
   "scripts": {
-    "test": "babel-tape-runner 'src/**/test/*.test.js'",
+    "test": "babel-tape-runner 'src/**/test/*.test.js' | faucet",
+    "test:ugly": "babel-tape-runner 'src/**/test/*.test.js'",
     "build": "babel src --out-dir build",
     "prepublish": "npm run build"
   },
