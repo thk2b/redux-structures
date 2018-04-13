@@ -29,6 +29,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "babel-tape-runner": "^2.0.1",
     "faucet": "^0.0.1",
+    "redux": "^3.7.2",
     "tape": "^4.9.0"
   }
 }
