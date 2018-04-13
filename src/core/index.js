@@ -1,13 +1,3 @@
-export function nameInvariant(name){
-    if(!name) throw {
-        message: `
-            Error in redux-structure: A ${ type }
-            was instantiated without a
-            \`name\` parameter.
-        `
-    }
-}
-
 const namespace = '@@redux-structures'
 
 export function createInstanceActionTypeCreator(structureType, instanceName){

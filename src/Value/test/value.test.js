@@ -5,8 +5,7 @@ import Value from '../'
 
 test('Value', main => {
     main.test('instantiation', t => {
-        const name = 'test-name'
-        const { actions, reducer } = Value(name)
+        const { actions, reducer } = Value('test-name-0')
         t.ok(actions, 'should return an object with an actions key')
         t.ok(reducer, 'should return an object with a reducer key')
         t.equal( typeof actions, 'object', 'actions should be an object')
@@ -15,19 +14,17 @@ test('Value', main => {
         t.end()
     })
     main.test('reducer', t => {
-        const name = 'test-name'
         const initialState = 1
-        const { reducer } = Value(name, initialState)
+        const { reducer } = Value('test-name-1', initialState)
         const state = reducer(undefined, {})
         t.equal( state, initialState, 'initial state should be set')
         t.equal( reducer(state, { type: 'other' }), state, 'should return state when receiving foreign actions')
         t.end()
     })
     main.test('`set` action', t => {
-        const name = 'test-name'
         const initialState = 9
         const nextState = 99
-        const { actions, reducer } = Value(name)
+        const { actions, reducer } = Value('test-name-2')
         t.equal( reducer(initialState, actions.set(nextState)), nextState)
         t.end()
     })
@@ -50,5 +47,16 @@ test('Value', main => {
         store.dispatch(v0.actions.set(nextState))
         t.deepEqual(store.getState(), { v0: nextState, v1: i1 }, 'should have the right next state')        
         t.end()
+    })
+    main.test('invariants', t => {
+        t.test('duplicate name', t => {
+            const v0 = Value('test-name-3')
+            t.throws(() => Value('test-name-3'), 'should throw when creating an instance with an already existing name')
+            t.end()
+        })
+        t.test('undefined name', t => {
+            t.throws(() => Value())
+            t.end()
+        })
     })
 })

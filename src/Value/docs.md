@@ -5,6 +5,10 @@ import Value from 'redux-structures/Value'
 
 `Value(String: name, any: initialState)`
 
+The name parameter coresponds to the <b>unique</b> name of the value.
+
+The initialState parameter is the initial state of the value. it is `null` by default.
+
 Returns an object with keys `actions` and `reducer`.
 
 ## Reducer
