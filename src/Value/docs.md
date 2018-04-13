@@ -1,4 +1,7 @@
 # Value
+```js
+import Value from 'redux-structures/Value'
+```
 
 `Value(String: name, any: initialState)`
 
