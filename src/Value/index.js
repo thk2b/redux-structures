@@ -1,7 +1,7 @@
-import { createInstance } from '../core'
+import { createStructureInstance } from '../core'
 
 export default function Value(name, initialState=null){
-    const { createActionType, matchInstance } = createInstance('Value', name)
+    const { createActionType, matchInstance } = createStructureInstance('Value', name)
 
     const actions = {
         set(nextValue){

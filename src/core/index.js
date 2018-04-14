@@ -21,7 +21,7 @@ function createActionTypeMatcher(structureType, instanceName){
 
 const names = {}
 
-export function createInstance(structureName, instanceName){
+export function createStructureInstance(structureName, instanceName){
     instanceNameUndefinedInvariant(structureName, instanceName)
     instanceNameAlreadyInUseInvariant( structureName, instanceName, names[structureName])
     
