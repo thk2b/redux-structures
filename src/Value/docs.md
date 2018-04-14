@@ -7,7 +7,7 @@ import Value from 'redux-structures/Value'
 
 The name parameter coresponds to the <b>unique</b> name of the value.
 
-The initialState parameter is the initial state of the value. it is `null` by default.
+The initialState parameter is the initial state of the value. It is `null` by default.
 
 Returns an object with keys `actions` and `reducer`.
 
