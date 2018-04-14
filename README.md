@@ -132,7 +132,13 @@ function fetchMessages(){
    }
 }
 
-export { actions as messageActions }
+const messageActions = {
+  ...actions,
+  fetchMessage,
+  fetchMessages
+}
+
+export { messageActions }
 export default reducer
 ```
 `index.js`
