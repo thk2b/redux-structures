@@ -40,22 +40,6 @@ const { reducer, actions } = HashMap('users', {
     1: { id: 1, name: 'jane' }
 })
 
-// define your application-specific actions, here using the thunk middleware
-function fetchUser(id){
-    return dispatch => {
-        fetch(`/user/${id}`)
-            .then(user => dispatch(actions.set(id, user)))
-    }
-}
-function fetchUsers(){
-    return dispatch => {
-        fetch(`/users`)
-            .then(users => {
-                dispatch(actions.setAll(users, user => user.id))
-            })
-    }
-}
-
 export default reducer
 export actions as nameActions
 ```
