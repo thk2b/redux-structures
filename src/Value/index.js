@@ -1,22 +1,7 @@
-import {
-    nameInvariant,
-    nameAlreadyInUseInvariant,
-} from '../invariants'
-
-import {
-    createInstanceActionTypeCreator,
-    createInstanceActionTypeMatcher
-} from '../core'
-
-const names = []
+import { createInstance } from '../core'
 
 export default function Value(name, initialState=null){
-    nameInvariant(name, 'Value')
-    nameAlreadyInUseInvariant(name, names, 'Value')
-    names.push(name)
-
-    const createActionType = createInstanceActionTypeCreator('Value', name)
-    const matchInstance = createInstanceActionTypeMatcher('Value', name)
+    const { createActionType, matchInstance } = createInstance('Value', name)
 
     const actions = {
         set(nextValue){
