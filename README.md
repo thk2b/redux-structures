@@ -111,7 +111,7 @@ You can define reducers which contain reducers from `redux-structures`.
 
 ## Usage
 
-It is recomended to export instances from their own module, like in traditional redux applications. Then, import all reducers when creating the store.
+It is recomended to export instances from their own module, like in traditional redux applications. Then, import all reducers when creating the store, and import actions where necesary.
 
 `messages.js`
 ```js
