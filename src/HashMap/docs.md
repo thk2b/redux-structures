@@ -55,10 +55,11 @@ const store = createStore(
     })
 )
 
-store.getState().users === { 1: { id: 1, name: 'jane' }}
+store.getState().users // { 1: { id: 1, name: 'jane' }}
 store.dispatch(userActions.set(2, { id: 2, name: 'joe' }))
-store.getState().users === {
+store.getState().users 
+/* {
     1:{id: 1, name: 'jane' }
     2:{id: 2, name: 'joe' }
-}
+} */
 ```
