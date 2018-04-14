@@ -7,7 +7,7 @@
     "test": "babel-tape-runner 'src/**/test/*.test.js' | faucet",
     "test:ugly": "babel-tape-runner 'src/**/test/*.test.js'",
     "build": "babel src --out-dir build",
-    "prepublish": "npm run build"
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
