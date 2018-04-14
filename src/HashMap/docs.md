@@ -23,11 +23,9 @@ A standard redux reducer to be passed to `redux.combineReducers`.
 
 Adds the key:value pair to the hashMap.
 
-### `setAll(Object: elements, Function: getKey)`
+### `setAll(Object: elements)`
 
-Adds all values from the data to the hashMap.
-
-The `getKey` parameter is a function with the signature `element => key`. It will be called for every element in `elements` and should return the coresponding key. If not provided, the default function is `element => element.id`.
+Adds all values from the data to the hashMap. Each key:value pair in the object becomes a key:value pair in the hashmap.
 
 ### `delete(key)`
 
