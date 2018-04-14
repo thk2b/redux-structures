@@ -41,7 +41,7 @@ const { reducer, actions } = HashMap('users', {
 })
 
 export default reducer
-export actions as nameActions
+export { actions as nameActions }
 ```
 
 ```js
