@@ -4,7 +4,7 @@ Reusable idiomatic redux data structures.
 [![npm version](https://badge.fury.io/js/redux-structures.svg)](https://badge.fury.io/js/redux-structures)
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/)
 
-```js
+```
 npm install --save redux-structures
 ```
 
