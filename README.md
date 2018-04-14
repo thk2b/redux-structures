@@ -115,7 +115,22 @@ It is recomended to export instances from their own module, like in traditional 
 import { HashMap } from 'redux-structures'
 const { reducer, actions } = HashMap('messages')
 
-/* define and export custom actions as needed */
+/* define custom actions, here with the thunk middleware */
+
+function fetchMessage(id){
+    return dispatch => {
+        fetch(`/message/${id}`)
+            .then(message => dispatch(actions.set(id, message)))
+    }
+}
+function fetchMessages(){
+    return dispatch => {
+        fetch(`/messages`)
+            .then(messages => {
+                dispatch(actions.setAll(messages))
+            })
+   }
+}
 
 export { actions as messageActions }
 export default reducer
