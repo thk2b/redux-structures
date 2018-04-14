@@ -105,3 +105,38 @@ Actions from `redux-structures` can be dispatched from anywhere, including middl
 ### Composing reducers
 
 You can define reducers which contain reducers from `redux-structures`.
+
+## Usage
+
+It is recomended to export instances from their own module, like in traditional redux applications. Then, import all reducers when creating the store.
+
+`messages.js`
+```js
+import { HashMap } from 'redux-structures'
+const { reducer, actions } = HashMap('messages')
+
+/* define and export custom actions as needed */
+
+export { actions as messageActions }
+export default reducer
+```
+`index.js`
+```js
+import { createStore, combineReducers } from 'redux'
+import messages from './path/to/messages'
+import users from './path/to/users'
+
+export default createStore(
+  combineReducers({
+    messages,
+    users
+  })
+)
+```
+`view.js`
+```js
+import { messageActions } from './path/to/messages'
+
+/* import actions and dispatch as you wish */
+
+```
