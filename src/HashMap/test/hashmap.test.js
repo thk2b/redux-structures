@@ -53,7 +53,6 @@ test('HashMap', main => {
         t.deepEqual(state0, { 2: 'b' }, 'should have done nothing when the key does not exist')
         t.end()
     })
-    
     main.test('multiple instances', t => {
         const n0 = 'name-0'
         const n1 = 'name-1'

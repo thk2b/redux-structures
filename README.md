@@ -5,3 +5,4 @@ Reusable redux data structures
 ## Docs
 
 - [Value](https://github.com/thk2b/redux-structures/blob/master/src/Value/docs.md)
+- [HashMap](https://github.com/thk2b/redux-structures/blob/master/src/HashMap/docs.md)
