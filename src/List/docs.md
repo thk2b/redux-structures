@@ -33,7 +33,7 @@ Removes the element at `index`.
 
 ### `push(element)`
 
-Adds the element at the end of the list.
+Adds `element` at the end of the list.
 
 ### `pop()`
 
