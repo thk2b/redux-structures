@@ -14,7 +14,9 @@ Redux applications often implement the same reducer logic. For instance, adding 
 To illustrate the problem, consider a chat application. The store has `users` and `messages`, which are both objects:
 
 ```js
-store.getState() === {
+store.getState()
+/*
+{
   users: {
     1: { id: 1, name: 'john doe', ... }
     2: { id: 2, name: 'jane doe', ... }
@@ -26,6 +28,7 @@ store.getState() === {
     ...
   }
 }
+*/
 ```
 
 Common actions include adding or removing a user, as well as adding or removing a message. Traditionally, the same logic is implemented in both reducers.
