@@ -1,8 +1,8 @@
-import { instanceNameUndefined, instanceNameAlreadyInUseInvariant } from './invariants'
+import { instanceNameUndefinedInvariant, instanceNameAlreadyInUseInvariant } from './invariants'
 
 const namespace = '@@redux-structures'
 
-function createInstanceActionTypeCreator(structureType, instanceName){
+function createActionTypeCreator(structureType, instanceName){
     return actionType => [
         namespace,
         structureType,
@@ -11,22 +11,18 @@ function createInstanceActionTypeCreator(structureType, instanceName){
     ].join('-')
 }
 
-function createInstanceActionTypeMatcher(structureType, instanceName){
-    return action => {
-        // console.log(action.type)
-        // console.log({ namespace, structureType, instanceName})
-        return action.type && action.type.startsWith([
-            namespace,
-            structureType,
-            instanceName
-        ].join('-'))
-    }
+function createActionTypeMatcher(structureType, instanceName){
+    return action => action.type && action.type.startsWith([
+        namespace,
+        structureType,
+        instanceName
+    ].join('-'))
 }
 
 const names = {}
 
 export function createInstance(structureName, instanceName){
-    instanceNameUndefined(structureName, instanceName)
+    instanceNameUndefinedInvariant(structureName, instanceName)
     instanceNameAlreadyInUseInvariant( structureName, instanceName, names[structureName])
     
     if(names[structureName]){
@@ -36,7 +32,7 @@ export function createInstance(structureName, instanceName){
     }
 
     return {
-        createActionType: createInstanceActionTypeCreator(structureName, instanceName),
-        matchInstance: createInstanceActionTypeMatcher(structureName, instanceName)
+        createActionType: createActionTypeCreator(structureName, instanceName),
+        matchInstance: createActionTypeMatcher(structureName, instanceName)
     }
 }

@@ -1,4 +1,4 @@
-export function instanceNameUndefined(structureName, instanceName){
+export function instanceNameUndefinedInvariant(structureName, instanceName){
     if(!instanceName) throw {
         message: `
             Error in redux-structure:
@@ -9,7 +9,6 @@ export function instanceNameUndefined(structureName, instanceName){
     }
 }
 export function instanceNameAlreadyInUseInvariant(structureName, instanceName, existingNames ){
-    console.log(arguments)
     if(Array.isArray(existingNames) && existingNames.includes(instanceName)) throw {
         message: `
             Error in redux-structure: 
