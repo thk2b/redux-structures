@@ -45,7 +45,7 @@ const store = createStore(
     })
 )
 
-store.getState() === 'clark kent'
+store.getState().name === 'clark kent'
 store.dispatch(nameActions.set('superman'))
-store.getState() === 'superman'
+store.getState().name === 'superman'
 ```
