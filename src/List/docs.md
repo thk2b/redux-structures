@@ -45,11 +45,11 @@ Removes the first element.
 
 ### `clear()`
 
-Removes all elements from the list
+Removes all elements from the list.
 
 ### `reset()`
 
-Resets the list to its initial state
+Resets the list to its initial state.
 
 ## Example
 
