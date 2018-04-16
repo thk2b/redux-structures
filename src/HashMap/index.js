@@ -24,6 +24,12 @@ export default function HashMap (name, initialState = {}){
                 type: createActionType('delete'),
                 key
             })
+        },
+        update(key, updateFn){
+            return ({
+                type: createActionType('update'),
+                key, updateFn
+            })
         }
     }
 
@@ -47,6 +53,12 @@ export default function HashMap (name, initialState = {}){
                     ? { ...nextState, [key]: state[key] }
                     : nextState
             , {})
+        } else if(action.type.endsWith('update')){
+            const { key, updateFn } = action
+            return {
+                ...state,
+                [key]: updateFn(state[key] || null)
+            }
         } else return state
     }
 

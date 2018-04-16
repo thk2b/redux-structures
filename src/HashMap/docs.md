@@ -31,6 +31,12 @@ Adds all values from the data to the hashMap. Each key:value pair in the object 
 
 Removes the key and value from the hashMap.
 
+### `update(key, updateFn)`
+
+Updates the key with the return value of `updateFn(state[key])`.
+
+`updateFn` recieves the current value at `key` or null if undefined.
+
 ## Example
 
 ```js

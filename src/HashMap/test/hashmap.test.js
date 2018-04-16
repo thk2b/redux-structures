@@ -50,7 +50,20 @@ test('HashMap', main => {
         const state0 = reducer({ 1: 'a', 2: 'b' }, actions.delete(1))
         t.deepEqual(state0, { 2: 'b' }, 'should have deleted the element at key')
         const state1 = reducer(state0, actions.delete(1))
-        t.deepEqual(state0, { 2: 'b' }, 'should have done nothing when the key does not exist')
+        t.deepEqual(state1, { 2: 'b' }, 'should have done nothing when the key does not exist')
+        t.end()
+    })
+    main.test('`update` action', t => {
+        const { actions, reducer } = HashMap('test-name-5')
+        const state0 = reducer({ 1: 'a', 2: 'b' }, actions.update(1, value => {
+            t.equal(value, 'a', 'should be given the current value')
+            return 'z'
+        }))
+        t.deepEqual(state0, { 1: 'z', 2: 'b' }, 'should have updated the element at key with the return value')
+        const state1 = reducer(state0, actions.update(3, value => {
+            t.equal(value, null, 'value should be null when it does not exist')
+        }))
+        t.deepEqual(state1, {...state0, 3: undefined}, 'should have set to undefined')
         t.end()
     })
     main.test('multiple instances', t => {
