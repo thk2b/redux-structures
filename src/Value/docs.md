@@ -23,6 +23,14 @@ A standard redux reducer to be passed to `redux.combineReducers`.
 
 sets the state to `nextValue`.
 
+### `reset()`
+
+sets the state to its initial state.
+
+### `clear()`
+
+sets the state to `null`.
+
 ## Example
 
 `name.js`

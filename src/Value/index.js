@@ -9,14 +9,30 @@ export default function Value(name, initialState=null){
                 type: createActionType('set'),
                 value: nextValue
             })
+        },
+        clear(){
+            return ({
+                type: createActionType('clear')
+            })
+        },
+        reset(){
+            return ({
+                type: createActionType('reset')
+            })
         }
     }
     const reducer = (state=initialState, action) => {
         if(!matchInstance(action)) return state
+        if(action.type.endsWith('reset')){
+            return initialState
+        }
         if(action.type.endsWith('set')){
             return action.value
         }
-        else return state
+        if(action.type.endsWith('clear')){
+            return null
+        }
+        return state
     }
 
     return {

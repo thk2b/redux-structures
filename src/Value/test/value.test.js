@@ -28,6 +28,17 @@ test('Value', main => {
         t.equal( reducer(initialState, actions.set(nextState)), nextState)
         t.end()
     })
+    main.test('`reset` action', t => {
+        const initialState = 9
+        const { actions, reducer } = Value('test-name-3', initialState)
+        t.equal( reducer(initialState, actions.reset()), initialState)
+        t.end()
+    })
+    main.test('`clear` action', t => {
+        const { actions, reducer } = Value('test-name-4')
+        t.equal( reducer([1, 2, 3], actions.clear()), null)
+        t.end()
+    })
     main.test('multiple instances', t => {
         const n0 = 'name-0'
         const n1 = 'name-1'
@@ -50,8 +61,8 @@ test('Value', main => {
     })
     main.test('invariants', t => {
         t.test('duplicate name', t => {
-            const v0 = Value('test-name-3')
-            t.throws(() => Value('test-name-3'), 'should throw when creating an instance with an already existing name')
+            const v0 = Value('name-3')
+            t.throws(() => Value('name-3'), 'should throw when creating an instance with an already existing name')
             t.end()
         })
         t.test('undefined name', t => {
