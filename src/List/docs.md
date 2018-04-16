@@ -27,13 +27,13 @@ Inserts `element` at the `index`.
 
 Replaces the element at `index` with `element`.
 
-### `insert(element, index)`
+### `remove(index)`
 
 Removes the element at `index`.
 
 ### `push(element)`
 
-Adds the element at the end of the list.
+Adds `element` at the end of the list.
 
 ### `pop()`
 

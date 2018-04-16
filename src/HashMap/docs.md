@@ -40,24 +40,8 @@ const { reducer, actions } = HashMap('users', {
     1: { id: 1, name: 'jane' }
 })
 
-// define your application-specific actions, here using the thunk middleware
-function fetchUser(id){
-    return dispatch => {
-        fetch(`/user/${id}`)
-            .then(user => dispatch(actions.set(id, user)))
-    }
-}
-function fetchUsers(){
-    return dispatch => {
-        fetch(`/users`)
-            .then(users => {
-                dispatch(actions.setAll(users, user => user.id))
-            })
-    }
-}
-
 export default reducer
-export actions as nameActions
+export { actions as userActions }
 ```
 
 ```js
@@ -71,7 +55,11 @@ const store = createStore(
     })
 )
 
-store.getState() === 'clark kent'
-store.dispatch(nameActions.set('superman'))
-store.getState() === 'superman'
+store.getState().users // { 1: { id: 1, name: 'jane' }}
+store.dispatch(userActions.set(2, { id: 2, name: 'joe' }))
+store.getState().users 
+/* {
+    1:{id: 1, name: 'jane' }
+    2:{id: 2, name: 'joe' }
+} */
 ```

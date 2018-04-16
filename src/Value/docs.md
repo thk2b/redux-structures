@@ -25,6 +25,7 @@ sets the state to `nextValue`.
 
 ## Example
 
+`name.js`
 ```js
 import Value from 'redux-structures/Value'
 
@@ -34,8 +35,8 @@ export default reducer
 export actions as nameActions
 ```
 
+`index.js`
 ```js
-// index.js
 import { createStore, combineReducers } from 'redux'
 import name, { nameActions } from '../path/to/file'
 
