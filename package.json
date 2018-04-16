@@ -1,6 +1,6 @@
 {
   "name": "redux-structures",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Reusable redux data structures",
   "main": "build/index.js",
   "scripts": {
