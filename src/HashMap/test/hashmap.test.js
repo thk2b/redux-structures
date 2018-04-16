@@ -66,6 +66,19 @@ test('HashMap', main => {
         t.deepEqual(state1, {...state0, 3: undefined}, 'should have set to undefined')
         t.end()
     })
+    main.test('`clear` action', t => {
+        const { actions, reducer } = HashMap('test-name-6')
+        const state0 = reducer({ 1: 'a', 2: 'b' }, actions.clear())
+        t.deepEqual(state0, {}, 'should have cleared all hey value pairs')
+        t.end()
+    })
+    main.test('`reset` action', t => {
+        const initialState = { 1: 'a', 2: 'b' }
+        const { actions, reducer } = HashMap('test-name-7',  initialState)
+        const state0 = reducer(initialState, actions.reset())
+        t.deepEqual(state0, initialState, 'should have set to initialState')
+        t.end()
+    })
     main.test('multiple instances', t => {
         const n0 = 'name-0'
         const n1 = 'name-1'
