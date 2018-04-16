@@ -43,6 +43,14 @@ Removes the last element.
 
 Removes the first element.
 
+### `clear()`
+
+Removes all elements from the list
+
+### `reset()`
+
+Resets the list to its initial state
+
 ## Example
 
 ```js

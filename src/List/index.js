@@ -36,6 +36,12 @@ export default function List(name, initialState=[]){
         },
         shift(){
             return ({ type: createActionType('shift') })
+        },
+        clear(){
+            return ({ type: createActionType('clear') })
+        },
+        reset(){
+            return ({ type: createActionType('reset') })
         }
     }
 
@@ -49,25 +55,37 @@ export default function List(name, initialState=[]){
                 element,
                 ...state.slice(index)
             ]
-        } else if(action.type.endsWith('replace')){
+        }
+        if(action.type.endsWith('replace')){
             const { index, element } = action
             return [
                 ...state.slice(0, index),
                 element,
                 ...state.slice(index + 1)
             ]
-        } else if(action.type.endsWith('remove')){
+        }
+        if(action.type.endsWith('remove')){
             return [
                 ...state.slice(0, action.index),
                 ...state.slice(action.index + 1)
             ]
-        } else if(action.type.endsWith('push')){
+        }
+        if(action.type.endsWith('push')){
             return state.concat(action.element)
-        } else if(action.type.endsWith('pop')){
+        }
+        if(action.type.endsWith('pop')){
             return state.slice(0, state.length -1)
-        } else if(action.type.endsWith('shift')){
+        }
+        if(action.type.endsWith('shift')){
             return state.slice(1)
-        } else return state
+        }
+        if(action.type.endsWith('clear')){
+            return []
+        }
+        if(action.type.endsWith('reset')){
+            return initialState
+        }
+        return state
     }
 
     return {

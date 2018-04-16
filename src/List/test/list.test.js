@@ -89,6 +89,19 @@ test('List', main => {
         )
         t.end()
     })
+    main.test('`clear` action', t => {
+        const { actions, reducer } = List('test-name-8')
+        const state0 = reducer([ 1, 2, 3 ], actions.clear())
+        t.deepEqual(state0, [], 'should have removed all elements')
+        t.end()
+    })
+    main.test('`reset` action', t => {
+        const initialState = [ 1, 2, , 3]
+        const { actions, reducer } = List('test-name-9', initialState)
+        const state0 = reducer(initialState, actions.reset())
+        t.deepEqual( state0, initialState, 'should have set to initial state')
+        t.end()
+    })
     main.test('multiple instances', t => {
         const n0 = 'name-0'
         const n1 = 'name-1'
