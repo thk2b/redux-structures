@@ -1,6 +1,6 @@
 # Value
 ```js
-import Value from 'redux-structures/Value'
+import { Value } from 'redux-structures'
 ```
 
 `Value(String: name, any: initialState)`
@@ -9,7 +9,7 @@ The name parameter coresponds to the <b>unique</b> name of the value.
 
 The initialState parameter is the initial state of the value. It is `null` by default.
 
-Returns an object with keys `actions` and `reducer`.
+Returns an object with keys `actions` and `reducer`:
 
 ## Reducer
 
