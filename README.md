@@ -16,7 +16,7 @@ npm install --save redux-structures
 
 ## Motivation
 
-Redux applications often implement the same reducer logic. For instance, adding or removing a property from a state object, inserting an element to a list or updating a value. `redux-structures` provides reusable and encapsulated implementations of these common data structures, so that you do not have to rewrite the same reducers over and over.
+Redux applications often implement the same reducer logic. For instance, adding or removing a property from a state object, inserting an element to a list or updating a value. `redux-structures` provides reusable implementations of these common data structures so that you do not have to rewrite the same reducers over and over.
 
 To illustrate the problem, consider a chat application. The store has `users` and `messages`, which are both objects:
 
@@ -38,7 +38,7 @@ store.getState()
 */
 ```
 
-Common actions include adding or removing a user, as well as adding or removing a message. Traditionally, the same logic is implemented in both reducers.
+Common actions include adding or removing a user, as well as adding or removing a message.
 
 ```js
 function users(state, action){
@@ -55,9 +55,9 @@ function messages(state, action){
   }
 }
 ```
-Notice that the only difference between the two reducers are the constants and the action property names. The same error-prone logic is repeated.
+Notice that the only difference between the two reducers are the constants and the action property names. The same error-prone logic is repeated twice.
 
-`redux-structures` implements this logic *once*, and allows you to instantly create coupled reducer - action instances.
+`redux-structures` implements this logic *once*, and allows you to instantly create coupled reducers and actions.
 
 ```js
 import { HashMap } from 'redux-structures'
@@ -66,7 +66,7 @@ const { reducer: users, actions: userActions} = HashMap('users')
 const { reducer: messages, actions: messageActions} = HashMap('messages')
 
 ```
-Now, to add a user, simply dispatch `userActions.set(id, user)`. (Refer to the documentation for more information.)
+Now, to add a user, simply dispatch `userActions.set(id, user)`. (See the documentation for more information)
 
 This has several advantages.
 
@@ -82,7 +82,7 @@ This has several advantages.
   Structures are functions that return a reducer and actions. There are different types of structures: `Value`, `HashMap`, and `List`.
 - Instances
 
-  Instances are reducer - actions pairs, obtained by calling a structure. Instances are created with a unique name, so that actions only affect the reducer to which they are bound. Actions and reducers are coupled, in that the reducer will only match actions created by the instance's action creators. In our example, an instance would be `messages` and `messagesAction`.
+  Instances are reducer - actions pairs, obtained by calling a structure. Instances are created with a unique name, so that actions only affect the reducer to which they are bound, and not reducers from other instances of the same structure. Actions and reducers are coupled: reducers only match actions created by the instance's action creators. In our example, an instance would be `messages` and `messagesAction`.
 
 ## Patterns
 
@@ -125,7 +125,7 @@ It is recomended to export instances from their own module, like in traditional 
 import { HashMap } from 'redux-structures'
 const { reducer, actions } = HashMap('messages')
 
-/* define custom actions, here with the thunk middleware */
+/* define custom actions, in this case with the thunk middleware */
 
 function fetchMessage(id){
     return dispatch => {
