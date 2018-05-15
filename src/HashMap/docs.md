@@ -7,7 +7,7 @@ import HashMap from 'redux-structures/HashMap'
 
 The name parameter coresponds to the <b>unique</b> name of the hashMap.
 
-The initialState parameter is the initial state of the value. It is empty by default. It must be an object, whose key:value pairs become key:value pairs in the hashmap.
+The initialState parameter is the initial state of the hashmap. It is an empty object by default. If specified, it must be an object. Its key:value pairs become key:value pairs in the hashmap.
 
 Returns an object with keys `actions` and `reducer`.
 
